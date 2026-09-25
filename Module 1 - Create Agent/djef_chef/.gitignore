@@ -1,0 +1,38 @@
+# Python and virtual environments
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Editors and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Secrets, local databases, and runtime files
+.env
+.env.*
+!.env.example
+data/
+*.db
+*.sqlite
+*.sqlite3
+logs/
+*.log
+*.tmp
+.langgraph_api/
+
+# Model weights and local large files
+*.keras
+*.pkl
+*.h5
+*.pt
+*.pth
+*.onnx
+*.mp4
+*.avi
+*.mov
+
