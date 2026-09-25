@@ -17,7 +17,7 @@ Here is the Streamlit app from the end-of-module project (`djef_chef/`):
 
 | Onboarding — set up your kitchen | Chat — the chef answers |
 | --- | --- |
-| ![DJEF Chef — onboarding](screenshots/app_onboarding.png) | ![DJEF Chef — chat](screenshots/app_chat.png) |
+| ![DJEF Chef — onboarding](screenshots/userscreenshot3.png) | ![DJEF Chef — chat](screenshots/pdfchat-1.png) |
 
 > On the left: ~1-minute setup (name, diet, allergies) — stored once in the LangGraph thread.
 > On the right: the chef replying in the chat, memory already loaded ("👋 Fatima").
