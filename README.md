@@ -8,7 +8,7 @@
 | # | Project | Preview | Live app |
 | --- | --- | --- | --- |
 | 1 | **[Personal Algerian Chef v1](Module%201%20-%20Create%20Agent/djef_chef/README.md)**<br><br>Turn what is already in your fridge into specific Algerian dishes — tlitli, harira, rechta, chakhchoukha, mhadjeb. Tool use (leftover matcher + live web search), LangGraph memory, Streamlit chat, Gemini. | <img src="Module%201%20-%20Create%20Agent/screenshots/userscreenshot3.png" width="340" alt="DJEF Chef — onboarding"> <img src="Module%201%20-%20Create%20Agent/screenshots/pdfchat-1.png" width="340" alt="DJEF Chef — chat"> | 🔗 [**djef-chef.streamlit.app**](https://djef-chef.streamlit.app) |
-| 2 | **[DJEF Wedding — Algerian wedding planner v1](Module%202%20-%20Advanced%20Agent/project_wedding_planner/README.md)**<br><br>A wedding **coordinator** dispatching to 3 specialists: ✈️ **Flights** (local MCP server) · 🏛️ **Venue** (live web search) · 🎵 **Playlist** (SQLite over SQL) — with budget range validation, saved runs and a blue & white UI. | 📄 [**DJEF_Wedding.pdf**](Module%202%20-%20Advanced%20Agent/project_wedding_planner/screanshot/DJEF_Wedding.pdf) | 🔗 [**djef-wedding.streamlit.app**](https://djef-wedding.streamlit.app) |
+| 2 | **[DJEF Wedding — Algerian wedding planner v1](Module%202%20-%20Advanced%20Agent/project_wedding_planner/README.md)**<br><br>A wedding **coordinator** dispatching to 3 specialists: ✈️ **Flights** (local MCP server) · 🏛️ **Venue** (live web search) · 🎵 **Playlist** (SQLite over SQL) — with budget range validation, saved runs and a blue & white UI. | 📄 [**DJEF_Wedding-1.png**](Module%202%20-%20Advanced%20Agent/project_wedding_planner/screanshot/DJEF_Wedding.pdf) | 🔗 [**djef-wedding.streamlit.app**](https://djef-wedding.streamlit.app) |
 
 ## 📚 The learning path
 
