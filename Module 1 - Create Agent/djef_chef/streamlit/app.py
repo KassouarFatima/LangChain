@@ -89,6 +89,9 @@ def inject_styles() -> None:
         }
         [data-testid="stSidebar"] * { color: #f5fbf8; }
         [data-testid="stSidebar"] .stCaption { color: #cfe6db !important; }
+        /* Inline `code` chips in the sidebar (model name, statuses) keep their
+           pale background but use the accent green so the text is readable. */
+        [data-testid="stSidebar"] code { color: #0B6B4F !important; }
         [data-testid="stSidebar"] .stButton > button[kind="secondary"] {
             background: rgba(255, 255, 255, 0.10);
             border: 1px solid rgba(255, 255, 255, 0.28);
@@ -250,6 +253,273 @@ def inject_styles() -> None:
 
 
 # ---------------------------------------------------------------------------
+# Dark mode (toggled by the "🌙 Dark mode" button in the sidebar)
+# ---------------------------------------------------------------------------
+DARK_CSS = """
+<style>
+/* DJEF Chef — dark mode.
+   The main area is inverted to charcoal: page #121212, panels #1E1E1E,
+   bubbles / inputs #2C2C2C, hairline borders #444 (no drop shadows), text #F9F6EE.
+   The forest-green sidebar, the golden mascot, the green status dots and the
+   memory pill keep the exact same colours they have in light mode. */
+:root {
+    --djef-dark-bg: #121212;
+    --djef-dark-panel: #1E1E1E;
+    --djef-dark-bubble: #2C2C2C;
+    --djef-dark-line: #444444;
+    --djef-dark-text: #F9F6EE;
+    --djef-dark-muted: #A7B0AA;
+    --djef-dark-placeholder: #8B928D;
+    --djef-dark-hover: #3A3A3A;
+}
+
+/* 1 · Main background ------------------------------------------------- */
+.stApp, [data-testid="stAppViewContainer"] {
+    background:
+        radial-gradient(circle at 86% 4%, rgba(212, 154, 50, .10), transparent 24rem),
+        radial-gradient(circle at 6% 90%, rgba(11, 107, 79, .14), transparent 28rem),
+        var(--djef-dark-bg) !important;
+    color: var(--djef-dark-text) !important;
+}
+[data-testid="stHeader"] { background: transparent !important; }
+
+/* 2 · Text ------------------------------------------------------------ */
+h1, h2, h3, h4, h5, h6,
+[data-testid="stMarkdownContainer"],
+[data-testid="stMarkdownContainer"] p,
+[data-testid="stMarkdownContainer"] li,
+[data-testid="stText"],
+[data-testid="stWidgetLabel"],
+[data-testid="stWidgetLabel"] p,
+[data-testid="stWidgetLabel"] div {
+    color: var(--djef-dark-text) !important;
+}
+[data-testid="stCaptionContainer"], .stCaption {
+    color: var(--djef-dark-muted) !important;
+}
+[data-testid="stMarkdownContainer"] code,
+[data-testid="stCaptionContainer"] code,
+[data-testid="stSidebar"] code {
+    background: var(--djef-dark-bubble) !important;
+    color: #5CE488 !important;
+    border: 1px solid var(--djef-dark-line);
+}
+[data-testid="stMarkdownContainer"] pre {
+    background: var(--djef-dark-panel) !important;
+    border: 1px solid var(--djef-dark-line) !important;
+}
+[data-testid="stMarkdownContainer"] a { color: #6FD3B2 !important; }
+
+/* 3 · Panels (shadows become hairline borders) ------------------------ */
+.hero, .welcome-panel, .setup-card, div[data-testid="stForm"],
+[data-testid="stExpander"] details, [data-testid="stAlert"],
+[data-testid="stStatusWidget"], [data-testid="stNotification"] {
+    background: var(--djef-dark-panel) !important;
+    border: 1px solid var(--djef-dark-line) !important;
+    box-shadow: none !important;
+}
+.hero h1, .welcome-panel h2 { color: var(--djef-dark-text) !important; }
+.hero p, .welcome-panel p,
+.setup-card p, .djef-modeline {
+    color: var(--djef-dark-text) !important;
+}
+.hero-eyebrow, .djef-byline { color: #35C79B !important; }
+.hero::after { color: rgba(244, 201, 109, .38) !important; }
+/* Only the inline accent word — the heading wrapper span keeps off-white. */
+.welcome-panel h2 .djef-accent { color: #35C79B !important; }
+[data-testid="stExpander"] summary,
+[data-testid="stExpander"] [data-testid="stMarkdownContainer"] {
+    color: var(--djef-dark-text) !important;
+}
+
+/* 4 · Chat bubbles and input ----------------------------------------- */
+div[data-testid="stChatMessage"] {
+    background: var(--djef-dark-bubble) !important;
+    border: 1px solid var(--djef-dark-line) !important;
+    box-shadow: none !important;
+    color: var(--djef-dark-text) !important;
+}
+/* Emoji avatar chip: white in light mode, so it matches the bubble here. */
+div[data-testid="stChatMessage"] > div:first-child {
+    background: var(--djef-dark-bubble) !important;
+    color: var(--djef-dark-text) !important;
+}
+div[data-testid="stChatMessage"] p,
+div[data-testid="stChatMessage"] li,
+div[data-testid="stChatMessage"] span {
+    color: var(--djef-dark-text) !important;
+}
+div[data-testid="stChatInput"] {
+    background: var(--djef-dark-bubble) !important;
+    border: 1px solid var(--djef-dark-line) !important;
+    box-shadow: none !important;
+}
+div[data-testid="stChatInput"] textarea,
+div[data-testid="stChatInput"] textarea::placeholder {
+    color: var(--djef-dark-text) !important;
+}
+div[data-testid="stChatInput"] textarea::placeholder {
+    color: var(--djef-dark-placeholder) !important;
+}
+div[data-testid="stChatInput"] button {
+    background: #0B6B4F !important;
+    border-color: #0B6B4F !important;
+    color: #FFFFFF !important;
+}
+div[data-testid="stChatInput"] button:hover {
+    background: #064c39 !important;
+}
+
+/* 5 · Inputs, selects, menus ----------------------------------------- */
+/* The widget shell carries the light theme's pale green; in dark mode it
+   becomes the same dark gray as the field it wraps. */
+[data-testid="stTextInputRootElement"],
+[data-testid="stTextInputField"] {
+    background: var(--djef-dark-bubble) !important;
+    border-color: var(--djef-dark-line) !important;
+}
+[data-baseweb="base-input"],
+[data-testid="stTextInput"] input,
+[data-testid="stTextArea"] textarea,
+[data-baseweb="input"] textarea,
+[data-baseweb="input"] input {
+    background: var(--djef-dark-bubble) !important;
+    color: var(--djef-dark-text) !important;
+    border-color: var(--djef-dark-line) !important;
+}
+[data-baseweb="input"] ::placeholder,
+[data-baseweb="base-input"] ::placeholder,
+input::placeholder, textarea::placeholder {
+    color: var(--djef-dark-placeholder) !important;
+}
+[data-baseweb="select"] {
+    background: var(--djef-dark-bubble) !important;
+    border-color: var(--djef-dark-line) !important;
+}
+[data-baseweb="select"] div, [data-baseweb="select"] input,
+[data-baseweb="select"] span {
+    color: var(--djef-dark-text) !important;
+}
+div[data-baseweb="tag"] {
+    background: #0B6B4F !important;
+    color: var(--djef-dark-text) !important;
+    border-color: #064c39 !important;
+}
+div[data-baseweb="tag"] * { color: var(--djef-dark-text) !important; }
+[data-baseweb="menu"], ul[role="listbox"] {
+    background: var(--djef-dark-bubble) !important;
+    border-color: var(--djef-dark-line) !important;
+}
+ul[role="listbox"] li { color: var(--djef-dark-text) !important; }
+ul[role="listbox"] li:hover,
+ul[role="listbox"] li[aria-selected="true"] {
+    background: var(--djef-dark-hover) !important;
+}
+
+/* 6 · Buttons --------------------------------------------------------- */
+.stButton > button,
+[data-testid="stFormSubmitButton"] > button {
+    background: var(--djef-dark-bubble) !important;
+    color: var(--djef-dark-text) !important;
+    border: 1px solid var(--djef-dark-line) !important;
+}
+.stButton > button:hover,
+[data-testid="stFormSubmitButton"] > button:hover {
+    background: var(--djef-dark-hover) !important;
+    border-color: #5A5A5A !important;
+}
+.stButton > button[kind="primary"],
+.stButton > button[kind="primaryFormSubmit"],
+[data-testid="stFormSubmitButton"] > button,
+[data-testid="stBaseButton-primary"],
+[data-testid="stBaseButton-primaryFormSubmit"] {
+    background: #0B6B4F !important;
+    color: #FFFFFF !important;
+    border-color: #0B6B4F !important;
+}
+.stButton > button[kind="primary"]:hover,
+.stButton > button[kind="primaryFormSubmit"]:hover,
+[data-testid="stFormSubmitButton"] > button:hover,
+[data-testid="stBaseButton-primary"]:hover,
+[data-testid="stBaseButton-primaryFormSubmit"]:hover {
+    background: #064c39 !important;
+    border-color: #064c39 !important;
+}
+.stButton > button:disabled,
+[data-testid="stFormSubmitButton"] > button:disabled {
+    background: #262626 !important;
+    color: #7C837E !important;
+    border-color: var(--djef-dark-line) !important;
+}
+
+hr { border-color: var(--djef-dark-line) !important; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--djef-dark-bg); }
+::-webkit-scrollbar-thumb { background: #3D3D3D; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: var(--djef-dark-line); }
+
+/* 7 · Sidebar: untouched forest green, restated last so it stays cohesive */
+[data-testid="stSidebar"] {
+    background: #073f31 !important;
+    border-right: 1px solid rgba(0, 0, 0, .55) !important;
+}
+/* Same rule as light mode, deliberately without !important so inline chip
+   colours (the white "by Kassouar Fatima" badge) keep reading as before. */
+[data-testid="stSidebar"] * { color: #f5fbf8; }
+[data-testid="stSidebar"] .stCaption,
+[data-testid="stSidebar"] [data-testid="stCaptionContainer"] {
+    color: #cfe6db !important;
+}
+[data-testid="stSidebar"] .profile-card {
+    background: rgba(255, 255, 255, 0.07) !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    box-shadow: none !important;
+}
+[data-testid="stSidebar"] .profile-name { color: #ffffff !important; }
+[data-testid="stSidebar"] .brand-name { color: #ffffff !important; }
+[data-testid="stSidebar"] .brand-kicker { color: #b8d4c8 !important; }
+[data-testid="stSidebar"] .profile-label { color: #9fd0bd !important; }
+[data-testid="stSidebar"] .profile-value { color: #e6f4ee !important; }
+[data-testid="stSidebar"] .status-pill,
+[data-testid="stSidebar"] .profile-card .status-pill {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    color: #f0faf5 !important;
+}
+[data-testid="stSidebar"] .stButton > button {
+    background: rgba(255, 255, 255, 0.10) !important;
+    border: 1px solid rgba(255, 255, 255, 0.28) !important;
+    color: #f5fbf8 !important;
+}
+[data-testid="stSidebar"] .stButton > button:hover {
+    background: rgba(255, 255, 255, 0.20) !important;
+    border-color: rgba(255, 255, 255, 0.45) !important;
+    color: #ffffff !important;
+}
+[data-testid="stSidebar"] [data-baseweb="select"] div,
+[data-testid="stSidebar"] [data-baseweb="select"] input {
+    color: #17352a !important;
+}
+[data-testid="stSidebar"] hr { border-color: rgba(255, 255, 255, 0.16) !important; }
+</style>
+"""
+
+
+def theme_css() -> None:
+    """Dark-mode overrides — only when the sidebar switch says so."""
+    if st.session_state.get("dark_mode"):
+        st.markdown(DARK_CSS, unsafe_allow_html=True)
+
+
+def theme_button() -> None:
+    """Switch the app between light and dark."""
+    dark = bool(st.session_state.get("dark_mode", False))
+    if st.button("☀️ Light mode" if dark else "🌙 Dark mode", key="theme_toggle"):
+        st.session_state["dark_mode"] = not dark
+        st.rerun()
+
+
+# ---------------------------------------------------------------------------
 # Session helpers
 # ---------------------------------------------------------------------------
 def initialise_state() -> None:
@@ -364,6 +634,15 @@ def render_sidebar(status: dict[str, Any]) -> None:
     """Render branding, profile memory, service status, and reset action."""
     with st.sidebar:
         st.markdown(
+            '<div style="background:#f5fbf8;border-radius:.6rem;padding:.2rem .55rem;'
+            'display:inline-block;margin-bottom:.4rem;font-size:.85rem">'
+            '<span style="color:#000000">by</span> '
+            '<span style="color:#0b6b4f;font-weight:700">Kassouar</span> '
+            '<span style="color:#000000">Fatima</span></div>',
+            unsafe_allow_html=True,
+        )
+        theme_button()
+        st.markdown(
             """
             <div class="brand">
               <div class="brand-mark">👩‍🍳</div>
@@ -450,7 +729,8 @@ def render_header(status: dict[str, Any]) -> None:
     )
     st.markdown(
         f"""
-        <div style="color:#111111;font-weight:600;font-size:.92rem;margin:-.4rem 0 .9rem">
+        <div class="djef-modeline"
+             style="color:#111111;font-weight:600;font-size:.92rem;margin:-.4rem 0 .9rem">
           🧠 Powered by <b>Gemini</b> · <code>{status['model']}</code>
           &nbsp;·&nbsp; 🌐 Tavily {"connected" if status["tavily_configured"] else "optional"}
           &nbsp;·&nbsp; 📈 LangSmith tracing {"on" if status["tracing_enabled"] else "off"}
@@ -476,7 +756,7 @@ def render_onboarding(status: dict[str, Any]) -> None:
         """
         <div class="welcome-panel">
           <div class="welcome-icon">🇩🇿</div>
-          <h2>Let's set the table, <span style="color:#0b6b4f">chef</span>.</h2>
+          <h2>Let's set the table, <span class="djef-accent" style="color:#0b6b4f">chef</span>.</h2>
           <p>A few details help DJEF Chef keep every suggestion relevant and safe.</p>
         </div>
         """,
@@ -618,6 +898,7 @@ def main() -> None:
     initialise_state()
     status = service_status()
     inject_styles()
+    theme_css()
     render_sidebar(status)
     render_header(status)
     show_setup_status(status)

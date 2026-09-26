@@ -1,0 +1,34 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# LangChain learning path — repository-wide ignores
+# Secrets rule: .env stays on the machine, .env.example travels with the repo.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Secrets
+.env
+.env.*
+!.env.example
+secrets.toml
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Runtime / local state
+logs/
+*.log
+*.tmp
+.langgraph_api/
+
+# Stray zero-byte artifact (apostrophe file) — never commit
+'

@@ -43,6 +43,25 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 load_dotenv(PROJECT_ROOT / ".env", override=True)
 
 
+def _pull_streamlit_secrets() -> None:
+    """Streamlit Community Cloud stores keys in the app's Secrets store (no
+    .env file travels with the repo) — copy them into the environment, but
+    only when a value is not already set, so the local .env always wins."""
+    try:
+        import streamlit as st  # only importable inside the app runtime
+
+        for key, value in st.secrets.items():
+            if key and str(value).strip() and key not in os.environ:
+                os.environ[key] = str(value)
+    except Exception:
+        # Not running under Streamlit, or no secrets configured — that's fine:
+        # locally the .env above already provides the keys.
+        pass
+
+
+_pull_streamlit_secrets()
+
+
 # ---------------------------------------------------------------------------
 # Configuration
 # ---------------------------------------------------------------------------

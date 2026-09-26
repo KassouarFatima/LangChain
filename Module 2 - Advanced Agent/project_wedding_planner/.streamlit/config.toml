@@ -1,0 +1,11 @@
+# DJEF Wedding — blue & white theme.
+# Streamlit reads this file when you launch from the project folder:
+#   streamlit run streamlit/app.py
+[theme]
+base = "light"
+primaryColor = "#1D4ED8"        # strong blue — buttons, widgets, accents
+backgroundColor = "#FFFFFF"     # white page
+secondaryBackgroundColor = "#EFF6FF"  # very light blue — sidebar / inputs
+textColor = "#1E293B"           # dark slate on white
+linkColor = "#1D4ED8"
+font = "sans serif"

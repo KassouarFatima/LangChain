@@ -1,0 +1,19 @@
+# Kassouar Fatima — LangChain learning path
+# Streamlit Community Cloud reads this file from the repository root and uses
+# it for BOTH apps:
+#   * Personal Algerian Chef v1      → Module 1 - Create Agent/djef_chef/streamlit/app.py
+#   * DJEF Wedding (coordinator)     → Module 2 - Advanced Agent/project_wedding_planner/streamlit/app.py
+#
+# Versions are pinned to the locally tested DJEF environment (Python 3.13).
+
+streamlit==1.64.0
+langchain==1.4.2
+langchain-core==1.6.5
+langgraph==1.2.12
+langchain-google-genai==4.4.0
+google-genai==2.25.0
+langchain-mcp-adapters==0.3.2
+mcp==1.30.0
+tavily-python==0.8.4
+python-dotenv==1.2.3
+langsmith==0.14.0
