@@ -225,31 +225,64 @@ PLAYLIST_SEED = [
 GENRES = ["chaabi", "rai", "andalous", "kabyle", "melhoun", "pop", "rap", "electro"]
 
 
+def _open_playlist() -> sqlite3.Connection:
+    """Open the playlist database read-write; on a read-only checkout fall
+    back to a read-only connection.
+
+    Streamlit Community Cloud ships the repository inside a read-only
+    checkout — the seeded ``playlist.db`` is then used exactly as it is in
+    git (28 rows), while locally the same file can still be created/seeded.
+    """
+    con = None
+    try:
+        con = sqlite3.connect(PLAYLIST_DB_PATH)
+        con.execute("PRAGMA user_version")  # force the file to open right now
+        return con
+    except sqlite3.Error:
+        if con is not None:
+            try:
+                con.close()
+            except Exception:
+                pass
+        return sqlite3.connect(f"file:{PLAYLIST_DB_PATH}?mode=ro", uri=True)
+
+
 def ensure_playlist_db() -> dict:
     """Create the playlist database with its demo rows if it is not there yet.
 
     The notebook shows the SQL by hand; this function only guarantees the app
-    finds the same database on a fresh checkout.
+    finds the same database on a fresh checkout. On a read-only checkout
+    (Streamlit Community Cloud) the writes are skipped and the rows already
+    shipped in git are used as they are.
     """
     created = not PLAYLIST_DB_PATH.exists()
-    PLAYLIST_DB_PATH.parent.mkdir(parents=True, exist_ok=True)
-    with sqlite3.connect(PLAYLIST_DB_PATH) as con:
-        con.execute(
-            "CREATE TABLE IF NOT EXISTS tracks ("
-            " id INTEGER PRIMARY KEY AUTOINCREMENT,"
-            " title TEXT NOT NULL,"
-            " artist TEXT NOT NULL,"
-            " genre TEXT NOT NULL,"
-            " duration_sec INTEGER NOT NULL)"
-        )
-        count = con.execute("SELECT COUNT(*) FROM tracks").fetchone()[0]
-        if count == 0:
-            con.executemany(
-                "INSERT INTO tracks (title, artist, genre, duration_sec)"
-                " VALUES (?, ?, ?, ?)",
-                PLAYLIST_SEED,
+    try:
+        PLAYLIST_DB_PATH.parent.mkdir(parents=True, exist_ok=True)
+    except OSError:
+        pass  # read-only checkout — the seeded file must already be there
+    try:
+        with _open_playlist() as con:
+            con.execute(
+                "CREATE TABLE IF NOT EXISTS tracks ("
+                " id INTEGER PRIMARY KEY AUTOINCREMENT,"
+                " title TEXT NOT NULL,"
+                " artist TEXT NOT NULL,"
+                " genre TEXT NOT NULL,"
+                " duration_sec INTEGER NOT NULL)"
             )
-            count = len(PLAYLIST_SEED)
+            count = con.execute("SELECT COUNT(*) FROM tracks").fetchone()[0]
+            if count == 0:
+                con.executemany(
+                    "INSERT INTO tracks (title, artist, genre, duration_sec)"
+                    " VALUES (?, ?, ?, ?)",
+                    PLAYLIST_SEED,
+                )
+                count = len(PLAYLIST_SEED)
+    except sqlite3.Error:
+        # Read-only filesystem: use the shipped, already-seeded database.
+        with _open_playlist() as con:
+            count = con.execute("SELECT COUNT(*) FROM tracks").fetchone()[0]
+        created = False
     return {"path": str(PLAYLIST_DB_PATH), "created": created, "tracks": count}
 
 
@@ -275,7 +308,7 @@ def run_sql(query: str) -> str:
             ensure_ascii=False,
         )
     try:
-        with sqlite3.connect(PLAYLIST_DB_PATH) as con:
+        with _open_playlist() as con:
             con.row_factory = sqlite3.Row
             rows = [dict(row) for row in con.execute(sql).fetchmany(50)]
     except sqlite3.Error as exc:
