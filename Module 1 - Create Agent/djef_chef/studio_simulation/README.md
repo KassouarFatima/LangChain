@@ -72,3 +72,13 @@ to what the simulation above prints as text.
 ---
 
 **Author:** Kassouar Fatima — built from the LangChain notebooks `1_1`–`1_4`.
+---
+
+## ✍️ Author
+
+**Fatima Kassouar** — AI Engineering Student · Designer · Web / Mobile Developer
+`ML` · `DL` · `NLP` · `Agent` · `Chatbot` · `Computer Vision` · `Autonomous AI`
+
+- 💼 LinkedIn: [linkedin.com/in/fatima-kassouar](https://linkedin.com/in/fatima-kassouar)
+- 🐙 GitHub: [github.com/KassouarFatima](https://github.com/KassouarFatima)
+- 📧 Email: [kassouarfatima20@gmail.com](mailto:kassouarfatima20@gmail.com)

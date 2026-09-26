@@ -97,3 +97,14 @@ A conversational agent that turns **leftover ingredients into specific Algerian 
 
 Create a local `.env` file (copy of `.env.example`) — `.env` is git-ignored, so your keys
 **never** leave your machine. 🔒
+
+---
+
+## ✍️ Author
+
+**Fatima Kassouar** — AI Engineering Student · Designer · Web / Mobile Developer
+`ML` · `DL` · `NLP` · `Agent` · `Chatbot` · `Computer Vision` · `Autonomous AI`
+
+- 💼 LinkedIn: [linkedin.com/in/fatima-kassouar](https://linkedin.com/in/fatima-kassouar)
+- 🐙 GitHub: [github.com/KassouarFatima](https://github.com/KassouarFatima)
+- 📧 Email: [kassouarfatima20@gmail.com](mailto:kassouarfatima20@gmail.com)

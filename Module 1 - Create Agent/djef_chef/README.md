@@ -338,3 +338,13 @@ persistent checkpointer (SQLite/Postgres) and add authentication.
 - API keys stay in local environment variables and are never logged.
 - Conversation memory is in RAM and is not written to a database.
 - Recipe recommendations are culinary suggestions, not medical or allergen certification.
+---
+
+## ✍️ Author
+
+**Fatima Kassouar** — AI Engineering Student · Designer · Web / Mobile Developer
+`ML` · `DL` · `NLP` · `Agent` · `Chatbot` · `Computer Vision` · `Autonomous AI`
+
+- 💼 LinkedIn: [linkedin.com/in/fatima-kassouar](https://linkedin.com/in/fatima-kassouar)
+- 🐙 GitHub: [github.com/KassouarFatima](https://github.com/KassouarFatima)
+- 📧 Email: [kassouarfatima20@gmail.com](mailto:kassouarfatima20@gmail.com)
