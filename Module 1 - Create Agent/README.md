@@ -73,8 +73,6 @@ A conversational agent that turns **leftover ingredients into specific Algerian 
 - ✅ **Lesson 1_3** → short-term memory (LangGraph + checkpointer)
 - ✅ **Lesson 1_4** → structured messages (typed graph state)
 
-![DJEF Chef — animated demo](djef_chef/docs/demo.gif)
-
 ### Project entry points
 
 | Entry point | Command |
