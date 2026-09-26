@@ -7,6 +7,17 @@
 > the playlist (**SQL**) — each hidden behind an ordinary `@tool`. Notebook +
 > small Streamlit app, sharing one service module.
 
+<img src="screanshot/banner_purple_blue.png" alt="Fatima Kassouar — AI Engineering Student · Designer · Web / Mobile Developer" width="100%">
+
+## 📄 The project sheet — [DJEF_Wedding.pdf](screanshot/DJEF_Wedding.pdf)
+
+The full wedding plan the app produces, printed to PDF — **3 pages**
+(click the link to open the PDF):
+
+| page 1 | page 2 | page 3 |
+| --- | --- | --- |
+| <img src="screanshot/DJEF%20Wedding%20Plan-1.png" width="100%" alt="Wedding plan — page 1"> | <img src="screanshot/DJEF%20Wedding%20Plan-2.png" width="100%" alt="Wedding plan — page 2"> | <img src="screanshot/DJEF%20Wedding%20Plan-3.png" width="100%" alt="Wedding plan — page 3"> |
+
 ## What it does
 
 The coordinator extracts four parameters — `Origin`, `Destination`,
