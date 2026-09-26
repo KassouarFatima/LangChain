@@ -1,13 +1,17 @@
 # 💍 Wedding planner — an Algerian wedding
 
-![Fatima Kassouar — AI Engineering Student · Designer · Web / Mobile Developer](screanshot/banner_purple_blue.png)
-
 > **Module 2 project** (Advanced Agent): a **multi-agent team** — the lesson `2_3`
 > wiring applied to a real project — built from the **Coordinator Agent** spec:
 > one **coordinator** that does not do the work itself: it delegates to three
 > **specialists** — flights (an **MCP server**), venues (**live web search**) and
 > the playlist (**SQL**) — each hidden behind an ordinary `@tool`. Notebook +
 > small Streamlit app, sharing one service module.
+
+## 📱 The app
+
+![DJEF Wedding app](screanshot/DJEF_Wedding-1.png)
+
+![DJEF Wedding app](screanshot/DJEF_Wedding-2.png)
 
 ## 📄 The project sheet — [DJEF_Wedding.pdf](screanshot/DJEF_Wedding.pdf)
 

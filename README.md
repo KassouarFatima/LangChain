@@ -3,6 +3,8 @@
 > My journey through **LangChain & LangGraph** — from a single model call to a
 > multi-agent coordinator: **Module 1 (Create Agent)** → **Module 2 (Advanced Agent)**.
 
+![Fatima Kassouar — AI Engineering Student · Designer · Web / Mobile Developer](Module%202%20-%20Advanced%20Agent/project_wedding_planner/screanshot/banner_purple_blue.png)
+
 ## 🚀 My projects
 
 | # | Project | Preview | Live app |
