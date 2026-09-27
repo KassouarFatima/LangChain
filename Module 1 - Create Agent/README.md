@@ -30,10 +30,12 @@ Here is the Streamlit app from the end-of-module project (`djef_chef/`):
 Module 1 - Create Agent/
 │
 ├── notebooks/            ← 4 lessons (follow in order)
+│   ├── README.md         ← how to execute every notebook
 │   ├── 1_1_Creation_Agent_foundational_models_kassouar.ipynb
 │   ├── 1_2_Tools_and_web_search_kassouar.ipynb
 │   ├── 1_3_Short_term_memory_kassouar.ipynb
 │   ├── 1_4_Multimodal_messages_kassouar.ipynb
+│   ├── run_1_1.cmd … run_1_4.cmd   ← one launcher per notebook
 │   └── assets/           ← image + audio used by lesson 1_4
 │
 ├── screenshots/          ← app screenshots shown above
@@ -60,6 +62,35 @@ Module 1 - Create Agent/
 
 > 💡 Each notebook is self-contained: copy `.env.example` to `.env`, or paste the key in the
 > setup cell / Colab Secrets.
+
+### ▶️ How to execute them
+
+One launcher per notebook, in [`notebooks/`](notebooks/README.md) — double-click,
+then press **Run ▶ → Run All Cells**:
+
+| Runner | Lesson | Jupyter port |
+| --- | --- | --- |
+| `run_1_1.cmd` | 1_1 Foundational models | **8891** |
+| `run_1_2.cmd` | 1_2 Tools and web search | **8893** |
+| `run_1_3.cmd` | 1_3 Short-term memory | **8894** |
+| `run_1_4.cmd` | 1_4 Multimodal messages | **8895** |
+
+Each launcher uses the `djef_chef\.venv` kernel (Python 3.13) and pre-loads the
+keys from `djef_chef\.env` — **no key is ever typed into a cell**.
+
+📖 Full execution guide, order, prerequisites and troubleshooting →
+**[`notebooks/README.md`](notebooks/README.md)**
+
+---
+
+## ✅ My actual work in this module
+
+| Where | What I built |
+| --- | --- |
+| **Notebooks** | 4 executed lessons `1_1 → 1_4` covering models · tools + Tavily web search · checkpointer memory · multimodal (image + audio) — plus a README explaining how to run each one |
+| **App** | **DJEF — Personal Algerian Chef** (`djef_chef/`): a Streamlit chat agent combining all four lessons — Gemini model, leftover-matcher + web-search tools, LangGraph checkpointer, typed graph state |
+| **Tests** | `djef_chef/tests/` — **82 tests** |
+| **Extras** | `studio_simulation/` graph simulation (terminal + LangGraph Studio), `scripts/` demo GIF generator, `djef_chef/notebook/` agent-core teaching notebook |
 
 ---
 
@@ -100,7 +131,7 @@ Create a local `.env` file (copy of `.env.example`) — `.env` is git-ignored, s
 
 ## ✍️ Author
 
-**Fatima Kassouar** — AI Engineering Student · Designer · Web / Mobile Developer
+**By Kassouar Fatima 🇩🇿** — AI Engineering Student · Designer · Web / Mobile Developer
 `ML` · `DL` · `NLP` · `Agent` · `Chatbot` · `Computer Vision` · `Autonomous AI`
 
 - 💼 LinkedIn: [linkedin.com/in/fatima-kassouar](https://linkedin.com/in/fatima-kassouar)

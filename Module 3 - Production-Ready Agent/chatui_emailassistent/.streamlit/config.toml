@@ -1,0 +1,16 @@
+# DJEF Email Assistant — Algerian green / gold theme.
+# by Kassouar Fatima 🇩🇿 — Module 3 — Production-Ready Agent.
+# Streamlit reads this file when you launch from the project folder:
+#   streamlit run streamlit/app.py --server.port 8502
+#
+# Dark mode is toggled at runtime via the 🌙 / ☀️ button
+# (in the sidebar and header). CSS overrides in design.py handle
+# the switch — config.toml sets the light-mode defaults.
+[theme]
+base = "light"
+primaryColor = "#0b6b4f"        # Algerian green — buttons, widgets, accents
+backgroundColor = "#fbf8f0"      # cream — page
+secondaryBackgroundColor = "#dcefe6"  # very light mint — sidebar / inputs
+textColor = "#17352a"            # dark ink on cream
+linkColor = "#0b6b4f"
+font = "sans serif"

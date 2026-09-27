@@ -1,0 +1,18 @@
+# DJEF Email Assistant — Module 3 project
+# Git ignore — never commit API keys
+.env
+!.env.example
+**/.venv
+**/__pycache__
+**/*.pyc
+.ipynb_checkpoints
+.streamlit/cache
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db

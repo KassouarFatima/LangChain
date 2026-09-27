@@ -1,0 +1,29 @@
+# DJEF Email Assistant — Algerian green / gold theme.
+# by Kassouar Fatima 🇩🇿 — Module 3 — Production-Ready Agent.
+#
+# This file MUST live in <cwd>/.streamlit/config.toml, i.e. next to the folder
+# you launch from. run_app.cmd does `cd ...\chatui_emailassistent\streamlit`,
+# so this file sits in ...\streamlit\.streamlit\. The older copy at
+# ..\chatui_emailassistent\.streamlit\config.toml is one level too high and is
+# never read — that is what let Streamlit fall back to its default LIGHT theme
+# (white page) while design.py painted light text on top: invisible text.
+#
+# Dark mode only — design.py's DARK_CSS supplies the detailed overrides.
+
+[theme]
+base = "dark"
+primaryColor = "#0b6b4f"        # Algerian green — buttons, widgets, accents
+backgroundColor = "#0b1120"     # deep navy — page
+secondaryBackgroundColor = "#131d30"  # card / input surfaces
+textColor = "#e2e8f0"           # light ink, readable on #0b1120
+linkColor = "#d49a32"           # Algerian gold
+font = "sans serif"
+
+[server]
+# Do NOT auto-rerun when a file changes on disk. An external editor or another
+# agent session saving app.py mid-conversation aborts the script run that is
+# answering your chat: your typed message stays, but the reply never arrives.
+fileWatcherType = "none"
+
+[browser]
+gatherUsageStats = false

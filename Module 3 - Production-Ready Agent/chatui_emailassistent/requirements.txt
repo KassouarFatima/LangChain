@@ -1,0 +1,15 @@
+# DJEF Email Assistant — Module 3 project (Streamlit app + notebook)
+# Install everywhere with:   pip install -r requirements.txt
+# Uses the lca-lc-foundations .venv (langchain v1 + langgraph)
+
+# --- the app ---------------------------------------------------------------
+streamlit
+langchain
+langgraph
+langchain-google-genai      # gemini-3.5-flash-lite model
+python-dotenv               # reads .env (GOOGLE_API_KEY)
+
+# --- the notebook ----------------------------------------------------------
+jupyter
+nbformat
+nbclient

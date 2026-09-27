@@ -8,7 +8,7 @@ and more.
 
 > **Built with:** Python 3.11+, Streamlit, LangChain, LangGraph, Gemini, and Tavily.
 >
-> **Author:** Kassouar Fatima.
+> **Author:** **By Kassouar Fatima 🇩🇿**.
 >
 > **Three entry points:** `notebook/` (the agent + teaching notebook) ·
 > `studio_simulation/` (terminal + LangGraph Studio) · `streamlit/` (the web app).
@@ -26,6 +26,49 @@ and more.
 </p>
 
 ---
+
+
+## 📸 Screenshots
+
+Full set in [`../screenshots/`](../screenshots):
+
+| Onboarding — set up your kitchen | Chat — the chef answers |
+| --- | --- |
+| ![DJEF Chef — onboarding](../screenshots/userscreenshot3.png) | ![DJEF Chef — chat](../screenshots/pdfchat-1.png) |
+
+| App onboarding | App chat |
+| --- | --- |
+| ![DJEF Chef — app onboarding](../screenshots/app_onboarding.png) | ![DJEF Chef — app chat](../screenshots/app_chat.png) |
+
+<p align="center">
+  <img src="../screenshots/userscreenshot1.png" width="300" alt="DJEF Chef — screenshot 1"/>
+  <img src="../screenshots/userscreenshot2.png" width="300" alt="DJEF Chef — screenshot 2"/>
+  <img src="../screenshots/pdfchat-2.png" width="300" alt="DJEF Chef — PDF chat"/>
+</p>
+
+---
+
+## ✅ My actual work in this project
+
+| Where | What |
+| --- | --- |
+| **Notebook** | [`notebook/DJEF_Chef.ipynb`](notebook/DJEF_Chef.ipynb) — the agent core in teaching form (20 cells: 11 markdown · 9 code) |
+| **App** | `streamlit/` — the chat web app: onboarding, memory, tool calls |
+| **Simulation** | `studio_simulation/` — the same graph in the terminal and in LangGraph Studio |
+| **Tests** | `tests/` — **82 tests** over food matching, memory and the graph |
+| **Demo** | `scripts/make_demo_gif.py` → `docs/demo.gif` |
+
+### 🍽️ Examples to type
+
+| You type | What happens |
+| --- | --- |
+| `I have chicken, onion and tomatoes` | Leftover matcher → concrete Algerian dishes (chakhchoukha, tagine…) |
+| `what can I cook with tlitli?` | Tool call + Tavily web search for the recipe |
+| `I'm vegetarian, no gluten` | Preferences saved once in the LangGraph thread and remembered next turn |
+| `send me a photo` | Lesson 1_4 path — multimodal content blocks |
+
+---
+
 
 ## Quickest test — one double-click (no servers)
 
@@ -342,7 +385,7 @@ persistent checkpointer (SQLite/Postgres) and add authentication.
 
 ## ✍️ Author
 
-**Fatima Kassouar** — AI Engineering Student · Designer · Web / Mobile Developer
+**By Kassouar Fatima 🇩🇿** — AI Engineering Student · Designer · Web / Mobile Developer
 `ML` · `DL` · `NLP` · `Agent` · `Chatbot` · `Computer Vision` · `Autonomous AI`
 
 - 💼 LinkedIn: [linkedin.com/in/fatima-kassouar](https://linkedin.com/in/fatima-kassouar)

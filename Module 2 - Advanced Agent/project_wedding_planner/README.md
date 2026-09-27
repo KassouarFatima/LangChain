@@ -62,6 +62,23 @@ runs the same CREATE + seed for you on first use (`ensure_playlist_db`), so the
 app always finds the same database. The Playlist Agent's tool only ever runs
 `SELECT` — every write attempt is refused.
 
+## ✅ My actual work in this module
+
+| Where | What |
+| --- | --- |
+| **Lesson notebooks** | [`../notebooks/`](../notebooks/README.md) — `2_1` MCP · `2_1+2_2` travel / state / runtime context · `2_3` multi-agent |
+| **Project notebook** | `notebooks/wedding_planner_kassouar.ipynb` — the Coordinator + 3 specialists, bench over MCP · SQL · delegation · tests · trace |
+| **Service** | `notebooks/wedding_planner_service.py` — Coordinator + ✈️ Flights (MCP) / 🏛️ Venue (web search) / 🎵 Playlist (SQLite over SQL) |
+| **MCP server** | `notebooks/mcp_flights_server.py` — local *stdio* flights server |
+| **Data** | `notebooks/data/playlist.db` — seeded playlist database (+ `.pre-break.bak`) |
+| **App** | `streamlit/` — `design` / `components` / `runner` / `app` |
+| **Launchers** | `run_notebook.cmd` → Jupyter on **8892** · `run_app.cmd` → Streamlit on **8511** |
+
+📖 How to execute the notebook, step by step → [`notebooks/README.md`](notebooks/README.md)
+
+---
+
+
 ## Layout
 
 ```
@@ -190,7 +207,7 @@ Author: **Kassouar Fatima 🇩🇿** — 26-09-2026
 
 ## ✍️ Author
 
-**Fatima Kassouar** — AI Engineering Student · Designer · Web / Mobile Developer
+**By Kassouar Fatima 🇩🇿** — AI Engineering Student · Designer · Web / Mobile Developer
 `ML` · `DL` · `NLP` · `Agent` · `Chatbot` · `Computer Vision` · `Autonomous AI`
 
 - 💼 LinkedIn: [linkedin.com/in/fatima-kassouar](https://linkedin.com/in/fatima-kassouar)
