@@ -89,4 +89,4 @@ Then **Kernel → Restart & Run All** (equivalent to running top-to-bottom).
 
 ---
 
-🇩🇿 **Mabrouk!** — **by Kassouar Fatima 🇩🇿** · Module 3 — Production-Ready Agent
+🇩🇿 — **by Kassouar Fatima 🇩🇿** · Module 3 — Production-Ready Agent
