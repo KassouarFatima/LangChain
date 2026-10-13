@@ -96,4 +96,4 @@ Chef app, its tests and its demo.
 
 ---
 
-🇩🇿 **Mabrouk!** — **by Kassouar Fatima 🇩🇿** · Module 1 — Create Agent
+🇩🇿 **by Kassouar Fatima 🇩🇿** · Module 1 — Create Agent
