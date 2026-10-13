@@ -254,7 +254,7 @@ zitoune · Vegetable rice · Burek**
 
 ## Prerequisites
 
-- [uv](https://docs.astral.sh/uv/)
+- uv
 - A Gemini API key
 - A Tavily API key for web search (the curated matcher works without it)
 - Optional: a LangSmith key for traces
@@ -313,9 +313,7 @@ uv run langgraph dev
 > **Double-click tip:** `run_studio.cmd` at the project root runs the exact same command with
 > UTF-8 console handling (Windows emoji banners print correctly).
 
-Then open the Studio link:
-
-👉 **[Open DJEF in LangGraph Studio](https://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2024)**
+Then open the Studio link the command prints.
 
 You will see only three nodes: `model`, `tools` (plus `__start__` / `__end__`). Submit
 `I have chickpeas, tomatoes, onion, and cumin. What can I make?` and watch the tool call, the

@@ -49,8 +49,7 @@ From the project root, in a terminal:
 uv run langgraph dev
 ```
 
-Then open **<https://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2024>**
-(or the URL the command prints). You will see only three nodes:
+Then open the Studio URL the command prints. You will see only three nodes:
 `__start__ → model → tools → __end__`. Submit a prompt and watch the tool
 call, the observation, and the final answer light up on the canvas — identical
 to what the simulation above prints as text.
