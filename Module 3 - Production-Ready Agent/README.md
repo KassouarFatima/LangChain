@@ -133,4 +133,4 @@ chatui_emailassistent/
 
 ---
 
-🇩🇿 **Mabrouk!** — **by Kassouar Fatima 🇩🇿** · Module 3 — Production-Ready Agent
+🇩🇿 **by Kassouar Fatima 🇩🇿** · Module 3 — Production-Ready Agent
