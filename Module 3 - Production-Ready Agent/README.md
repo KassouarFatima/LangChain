@@ -127,7 +127,6 @@ chatui_emailassistent/
 
 ## 🔗 Links
 
-- **This repo:** [github.com/KassouarFatima/LangChain](https://github.com/KassouarFatima/LangChain)
 - **App code:** [`chatui_emailassistent/`](chatui_emailassistent/README.md)
 - **Notebooks:** [`notebooks/`](notebooks/README.md)
 - **Back to:** [main README](../README.md)

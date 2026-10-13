@@ -100,7 +100,7 @@ also run headlessly with `uv run pytest`.
 | --- | --- | --- |
 | `notebook/` | The agent core (`chef_service.py`) + a step-by-step Jupyter notebook | Double-click `run_notebook.cmd`, or open `notebook/DJEF_Chef.ipynb` in any Jupyter — Run All Cells (the last cell runs all 82 tests) |
 | `studio_simulation/` | A **terminal simulation** of the graph + instructions for the real LangGraph Studio | `uv run python studio_simulation/simulate.py` · real Studio: `uv run langgraph dev` |
-| `streamlit/` | The chat web app | `uv run streamlit run streamlit/app.py` → http://localhost:8501 |
+| `streamlit/` | The chat web app | `uv run streamlit run streamlit/app.py` → `http://localhost:8501` |
 
 The GIF and an MD live at `docs/demo.gif` and `README.md`; automated tests live in `tests/`.
 
@@ -288,7 +288,7 @@ Then edit `.env` with your keys.
 uv run streamlit run streamlit/app.py
 ```
 
-Open <http://localhost:8501>. Enter a name, choose dietary preferences, add allergies, then
+Open `http://localhost:8501`. Enter a name, choose dietary preferences, add allergies, then
 ask: `I have chickpeas, tomatoes, onion, and cumin. What can I make?`
 
 ### Optional LangSmith tracing

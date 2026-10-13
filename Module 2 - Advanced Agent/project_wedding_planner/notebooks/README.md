@@ -79,7 +79,7 @@ The notebook is the lab; the app is the product:
 | Entry point | Command |
 | --- | --- |
 | This notebook | `& ".\run_notebook.cmd"` → Run All Cells |
-| The Streamlit app | `& ".\run_app.cmd"` → <http://localhost:8511> |
+| The Streamlit app | `& ".\run_app.cmd"` → `http://localhost:8511` |
 | Full docs + screenshots | **[`../README.md`](../README.md)** |
 
 ---
